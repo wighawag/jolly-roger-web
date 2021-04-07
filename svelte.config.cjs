@@ -28,7 +28,7 @@ module.exports = {
 				noExternal: Object.keys(pkg.dependencies || {})
 			},
 			optimizeDeps: {
-				include: ['bn.js'],
+				include: ['bn.js', 'bech32', 'hash.js'],
 			},
 		}
 	}
