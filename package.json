@@ -1,5 +1,5 @@
 {
-  "name": "svelte-kit-app",
+  "name": "jolly-roger-web",
   "version": "0.0.1",
   "type": "module",
   "engines": {
@@ -33,6 +33,7 @@
     "ipfs-gateway-emulator": "^4.2.1-ipfs.1",
     "postcss": "^8.2.7",
     "postcss-load-config": "^3.0.1",
+    "prepare-for-web": "^0.1.5",
     "prettier": "~2.2.1",
     "prettier-plugin-svelte": "^2.2.0",
     "svelte": "^3.29.0",
@@ -43,6 +44,7 @@
     "vite": "^2.1.0"
   },
   "scripts": {
+    "prepare": "node ./.setup.cjs && prepare-for-web --target static --targetFile src/app.html",
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
     "start": "svelte-kit start",

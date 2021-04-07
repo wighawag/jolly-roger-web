@@ -10,3 +10,5 @@ yalc.lock
 /static/pwa
 .vscode/*
 !.vscode/*.default
+/src/app.html
+/static/robots.txt
