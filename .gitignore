@@ -3,6 +3,7 @@ node_modules
 /.svelte
 /build
 /functions
+/src/lib/contracts.json
 .yalc
 yalc.lock
 .env

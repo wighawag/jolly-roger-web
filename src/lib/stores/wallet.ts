@@ -1,14 +1,14 @@
 import WalletStores from 'web3w';
-// import {TorusModuleLoader} from 'web3w-torus-loader';
-// import {WalletConnectModuleLoader} from 'web3w-walletconnect-loader';
-// import contractsInfo from '../contracts.json';
+import {TorusModuleLoader} from 'web3w-torus-loader';
+import {WalletConnectModuleLoader} from 'web3w-walletconnect-loader';
+import contractsInfo from '$lib/contracts.json';
 import {notifications} from './notifications';
 import {finality, nodeUrl, chainId} from '$lib/config';
 import {basepath} from '$lib/init';
 import {isCorrected, correctTime} from './time';
 
 const walletStores = WalletStores({
-  // chainConfigs: contractsInfo,
+  chainConfigs: contractsInfo,
   builtin: {autoProbe: true},
   transactions: {
     autoDelete: false,
@@ -18,14 +18,14 @@ const walletStores = WalletStores({
   localStoragePrefix: basepath.startsWith('/ipfs/') || basepath.startsWith('/ipns/') ? basepath.slice(6) : undefined, // ensure local storage is not conflicting across web3w-based apps on ipfs gateways
   options: [
     'builtin',
-    // new TorusModuleLoader({verifier: 'google', nodeUrl, chainId}),
-    // new TorusModuleLoader({verifier: 'facebook', nodeUrl, chainId}),
-    // new TorusModuleLoader({verifier: 'discord', nodeUrl, chainId}),
-    // new WalletConnectModuleLoader({
-    //   nodeUrl,
-    //   chainId,
-    //   infuraId: 'bc0bdd4eaac640278cdebc3aa91fabe4',
-    // }),
+    new TorusModuleLoader({verifier: 'google', nodeUrl, chainId}),
+    new TorusModuleLoader({verifier: 'facebook', nodeUrl, chainId}),
+    new TorusModuleLoader({verifier: 'discord', nodeUrl, chainId}),
+    new WalletConnectModuleLoader({
+      nodeUrl,
+      chainId,
+      infuraId: 'bc0bdd4eaac640278cdebc3aa91fabe4',
+    }),
   ],
   fallbackNode: nodeUrl, // TODO use query string to specify it // TODO settings
 });

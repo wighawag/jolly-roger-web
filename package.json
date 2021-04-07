@@ -10,10 +10,12 @@
     "@ethersproject/bignumber": "^5.0.15",
     "@ethersproject/contracts": "^5.1.0",
     "@ethersproject/providers": "^5.1.0",
-    "@urql/core": "^2.0.0",
+    "@urql/core": "1.16.2",
     "@urql/devtools": "^2.0.3",
     "graphql": "^15.5.0",
     "web3w": "^0.2.44",
+    "web3w-torus-loader": "^0.2.5",
+    "web3w-walletconnect-loader": "^0.2.1",
     "wonka": "^4.0.15"
   },
   "devDependencies": {

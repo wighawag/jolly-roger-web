@@ -489,10 +489,10 @@
     "@typescript-eslint/types" "4.21.0"
     eslint-visitor-keys "^2.0.0"
 
-"@urql/core@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@urql/core/-/core-2.0.0.tgz#b4936dd51fe84cb570506d9ee2579149689f7535"
-  integrity sha512-Qj24CG8ullqZZsYmjrSH0JhH+nY7kj8GbVbA9si3KUjlYs75A/MBQU3i97j6oWyGldDBapyis2CfaQeXKbv8rA==
+"@urql/core@1.16.2":
+  version "1.16.2"
+  resolved "https://registry.yarnpkg.com/@urql/core/-/core-1.16.2.tgz#e404b7f66c163245f44e7ef3c736707b7fb20234"
+  integrity sha512-Be2ekFcRovpLx6EKu/w7M3jJdC32Ev3eXJgXcJD7pVDgjv/RfUbYC4tGU87VrvQDJOg+t4gHFtIR6Vr9ws7mbg==
   dependencies:
     "@graphql-typed-document-node/core" "^3.1.0"
     wonka "^4.0.14"
@@ -3981,6 +3981,20 @@ walk-back@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/walk-back/-/walk-back-4.0.0.tgz#9e4ad2bd72038f3beed2d83180f9fd40b233bfab"
   integrity sha512-kudCA8PXVQfrqv2mFTG72vDBRi8BKWxGgFLwPpzHcpZnSwZk93WMwUDVcLHWNsnm+Y0AC4Vb6MUNRgaHfyV2DQ==
+
+web3w-torus-loader@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/web3w-torus-loader/-/web3w-torus-loader-0.2.5.tgz#c28dd9859df672fea9cd2cb9cb2baac716271d33"
+  integrity sha512-ZgrX92J37PFnydMWQZgjn5Gqth8jnY5os7RadafICOk5j2uEymnKFNWkoaVmb0UKGUGJ3aU1Pdp/9DJ6BfSmDg==
+  dependencies:
+    named-logs "0.0.13"
+
+web3w-walletconnect-loader@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/web3w-walletconnect-loader/-/web3w-walletconnect-loader-0.2.1.tgz#f069edc1628f3f68e3d52962306683ddf49915cb"
+  integrity sha512-z4uWiXwpoITgPtfWsM2j5nbOuxY5NuhxGhHHfr+Jnh9roTVq8STjckQKNfapwaNcv+G40EfkOHn5zHUXS4hHyg==
+  dependencies:
+    named-logs "0.0.13"
 
 web3w@^0.2.44:
   version "0.2.44"

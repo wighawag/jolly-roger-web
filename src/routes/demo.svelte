@@ -4,13 +4,16 @@
   import Blockie from '$lib/components/Blockie.svelte';
   import {messages} from '$lib/stores/messages';
   import {wallet, flow, chain} from '$lib/stores/wallet';
+  import {onMount} from 'svelte';
 
   let message = '';
   async function setMessage() {
     await flow.execute((contracts) => contracts.GreetingsRegistry.setMessage(message));
   }
 
-  messages.fetch(); // onMount ?
+  onMount(() => {
+    messages.fetch();
+  });
 </script>
 
 <symbol id="icon-spinner6" viewBox="0 0 32 32">
@@ -24,10 +27,8 @@
       <div>Messages not loaded</div>
     {:else if $messages.error}
       <div>Error: {$messages.error}</div>
-    {:else if $messages.state === 'Fetching'}
+    {:else if $messages.state === 'Fetching' || !$messages.data}
       <div>Loading Messages...</div>
-    {:else if !$messages.data}
-      <div>Error: Could Not Get Messages</div>
     {:else}
       {#each $messages.data as message, index}
         <!-- <Blockie address={name.id} /> -->
