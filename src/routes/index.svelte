@@ -57,7 +57,9 @@
       >
       <p class="mt-6">
         Find out more on
-        <a class="underline" href="https://github.com/wighawag/jolly-roger#readme" target="_blank">github</a>
+        <a class="underline" href="https://github.com/wighawag/jolly-roger#readme" target="_blank" rel="noopener"
+          >github</a
+        >
       </p>
     </div>
   </div>

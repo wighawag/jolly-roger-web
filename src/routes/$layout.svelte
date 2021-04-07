@@ -9,6 +9,10 @@
   // import Install from './components/Install.svelte';
 </script>
 
+<svelte:head>
+  <title>Jolly Roger, Template for Decentralised Applications.</title>
+</svelte:head>
+
 <NoInstallPrompt />
 <NewVersionNotification />
 
