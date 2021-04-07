@@ -1,24 +1,16 @@
 <script lang="ts">
-  export let title: string = '';
+  export let title = '';
   import {chainName} from './config';
   import {basepath} from './init';
   import NavButton from './components/navigation/NavButton.svelte';
   import Modal from './components/Modal.svelte';
 
-  import {
-    wallet,
-    builtin,
-    chain,
-    flow,
-    fallback,
-  } from './stores/wallet';
+  import {wallet, builtin, chain, flow, fallback} from './stores/wallet';
 
   $: executionError = $flow.executionError as any;
 
   let options: {img: string; id: string; name: string}[] = [];
-  $: builtinNeedInstalation =
-    $wallet.options.filter((v) => v === 'builtin' && !$builtin.available)
-      .length > 0;
+  $: builtinNeedInstalation = $wallet.options.filter((v) => v === 'builtin' && !$builtin.available).length > 0;
   $: options = $wallet.options
     .filter((v) => v !== 'builtin' || $builtin.available)
     .map((v) => {
@@ -70,11 +62,8 @@
     </p>
   </div> -->
 {:else if $chain.notSupported}
-  <div
-    class="w-full flex items-center justify-center fixed top-0 pointer-events-none"
-    style="z-index: 5;">
-    <p
-      class="w-64 text-center rounded-bl-xl rounded-br-xl text-gray-200 bg-pink-600 p-1">
+  <div class="w-full flex items-center justify-center fixed top-0 pointer-events-none" style="z-index: 5;">
+    <p class="w-64 text-center rounded-bl-xl rounded-br-xl text-gray-200 bg-pink-600 p-1">
       Wrong network, use
       {chainName}
     </p>
@@ -82,11 +71,7 @@
 {/if}
 
 {#if $flow.inProgress}
-  <Modal
-    {title}
-    cancelable={!$wallet.connecting}
-    on:close={() => flow.cancel()}
-    closeButton={false}>
+  <Modal {title} cancelable={!$wallet.connecting} on:close={() => flow.cancel()} closeButton={false}>
     {#if $wallet.state === 'Idle'}
       {#if $wallet.loadingModule}
         Loading module:
@@ -103,7 +88,8 @@
               class="cursor-pointer p-2 m-2 border-2 h-12 w-12 object-contain"
               alt={`Login with ${option.name}`}
               src={`${basepath}${option.img}`}
-              on:click={() => wallet.connect(option.id)} />
+              on:click={() => wallet.connect(option.id)}
+            />
           {/each}
         </div>
         {#if builtinNeedInstalation}
@@ -113,11 +99,13 @@
               label="Download Metamask"
               blank={true}
               href="https://metamask.io/download.html"
-              class="m-4 w-max-content">
+              class="m-4 w-max-content"
+            >
               <img
                 class="cursor-pointer p-0 mx-2 h-10 w-10 object-contain"
                 alt={`Download Metamask}`}
-                src={`${basepath}images/metamask.svg`} />
+                src={`${basepath}images/metamask.svg`}
+              />
               Download metamask
             </NavButton>
           </div>
@@ -127,9 +115,7 @@
       {#if $wallet.unlocking}
         Please accept the application to access your wallet.
       {:else}
-        <NavButton label="Unlock Wallet" on:click={() => wallet.unlock()}>
-          Unlock
-        </NavButton>
+        <NavButton label="Unlock Wallet" on:click={() => wallet.unlock()}>Unlock</NavButton>
       {/if}
     {:else if $chain.state === 'Idle'}
       {#if $chain.connecting}Connecting...{/if}

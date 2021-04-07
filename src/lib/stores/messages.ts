@@ -1,10 +1,6 @@
 import {derived, Readable} from 'svelte/store';
 import type {TransactionStore} from 'web3w';
-import type {
-  Invalidator,
-  Subscriber,
-  Unsubscriber,
-} from 'web3w/dist/esm/utils/internals';
+import type {Invalidator, Subscriber, Unsubscriber} from 'web3w/dist/esm/utils/internals';
 import {SUBGRAPH_ENDPOINT} from '$lib/graphql/graphql_endpoints';
 import {QueryState, QueryStore, queryStore} from '$lib/graphql';
 import {transactions} from './wallet';
@@ -17,12 +13,7 @@ type Messages = {
 }[];
 
 // TODO web3w needs to export the type
-type TransactionStatus =
-  | 'pending'
-  | 'cancelled'
-  | 'success'
-  | 'failure'
-  | 'mined';
+type TransactionStatus = 'pending' | 'cancelled' | 'success' | 'failure' | 'mined';
 type TransactionRecord = {
   hash: string;
   from: string;
@@ -51,19 +42,11 @@ type TransactionRecord = {
 
 class MessagesStore implements QueryStore<Messages> {
   private store: Readable<QueryState<Messages>>;
-  constructor(
-    private query: QueryStore<Messages>,
-    private transactions: TransactionStore
-  ) {
-    this.store = derived([this.query, this.transactions], (values) =>
-      this.update(values)
-    ); // lambda ensure update is not bound and can be hot swapped on HMR
+  constructor(private query: QueryStore<Messages>, private transactions: TransactionStore) {
+    this.store = derived([this.query, this.transactions], (values) => this.update(values)); // lambda ensure update is not bound and can be hot swapped on HMR
   }
 
-  update([$query, $transactions]: [
-    QueryState<Messages>,
-    TransactionRecord[]
-  ]): QueryState<Messages> {
+  update([$query, $transactions]: [QueryState<Messages>, TransactionRecord[]]): QueryState<Messages> {
     if (!$query.data) {
       return $query;
     } else {
@@ -72,15 +55,11 @@ class MessagesStore implements QueryStore<Messages> {
         if (!tx.finalized && tx.args) {
           // based on args : so need to ensure args are available
           if (tx.status != 'cancelled' && tx.status !== 'failure') {
-            const foundIndex = newData.findIndex(
-              (v) => v.id.toLowerCase() === tx.from.toLowerCase()
-            );
+            const foundIndex = newData.findIndex((v) => v.id.toLowerCase() === tx.from.toLowerCase());
             if (foundIndex >= 0) {
               newData[foundIndex].message = tx.args[0] as string;
               newData[foundIndex].pending = tx.confirmations < 1;
-              newData[foundIndex].timestamp = Math.floor(
-                Date.now() / 1000
-              ).toString();
+              newData[foundIndex].timestamp = Math.floor(Date.now() / 1000).toString();
             } else {
               newData.unshift({
                 id: tx.from.toLowerCase(),
@@ -92,9 +71,7 @@ class MessagesStore implements QueryStore<Messages> {
           }
         }
       }
-      newData = newData.sort(
-        (a, b) => parseInt(b.timestamp) - parseInt(a.timestamp)
-      );
+      newData = newData.sort((a, b) => parseInt(b.timestamp) - parseInt(a.timestamp));
       return {
         state: $query.state,
         error: $query.error,

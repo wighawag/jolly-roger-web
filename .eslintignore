@@ -7,5 +7,4 @@ node_modules
 yalc.lock
 .env
 /static/pwa
-.vscode/*
-!.vscode/*.default
+.vscode

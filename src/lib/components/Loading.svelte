@@ -3,6 +3,8 @@
   cancel;
 </script>
 
+<div class="page-loading" />
+
 <style>
   @keyframes scale {
     from {
@@ -34,5 +36,3 @@
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   }
 </style>
-
-<div class="page-loading" />

@@ -36,12 +36,12 @@ const chainName = (() => {
 })();
 
 if (!nodeUrl) {
-  const url = import.meta.env.VITE_ETH_NODE_URI  as string;
+  const url = import.meta.env.VITE_ETH_NODE_URI as string;
   if (url && url !== '') {
     nodeUrl = url;
   }
 }
 
-const graphNodeURL = import.meta.env.VITE_THE_GRAPH_HTTP  as string;
+const graphNodeURL = import.meta.env.VITE_THE_GRAPH_HTTP as string;
 
 export {finality, nodeUrl, chainId, blockTime, chainName, graphNodeURL};

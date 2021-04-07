@@ -1,10 +1,10 @@
-import { blockTime } from '../config';
+import {blockTime} from '../config';
 import {readable} from 'svelte/store';
 import {startTime as initStartTime} from '../init';
 
 export let startTime = initStartTime;
 
-const performanceAvailable = typeof performance !== "undefined";
+const performanceAvailable = typeof performance !== 'undefined';
 
 export function now(): number {
   if (performanceAvailable) {
@@ -41,7 +41,7 @@ export const time = readable(now(), function start(set) {
 
 // TODO remove
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-if (typeof window !== "undefined") {
+if (typeof window !== 'undefined') {
   (window as any).time = {
     now,
     startTime,
@@ -50,5 +50,4 @@ if (typeof window !== "undefined") {
     time,
   };
   // console.log((window as any).time);
-  
 }

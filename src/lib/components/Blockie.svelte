@@ -5,7 +5,7 @@
   export let _class = '';
   export {_class as class};
   export let address: string;
-  export let scale: number = 4;
+  export let scale = 4;
 
   let lastOptions:
     | {
@@ -24,8 +24,7 @@
       randseed[i] = 0;
     }
     for (let i = 0; i < seed.length; i++) {
-      randseed[i % 4] =
-        (randseed[i % 4] << 5) - randseed[i % 4] + seed.charCodeAt(i);
+      randseed[i % 4] = (randseed[i % 4] << 5) - randseed[i % 4] + seed.charCodeAt(i);
     }
   }
 
@@ -118,11 +117,7 @@
   }
 
   function update() {
-    if (
-      lastOptions &&
-      lastOptions.address === address &&
-      lastOptions.scale === scale
-    ) {
+    if (lastOptions && lastOptions.address === address && lastOptions.scale === scale) {
       return;
     }
     lastOptions = {
@@ -130,10 +125,7 @@
       scale,
     };
 
-    seedrand(
-      (address && address.toLowerCase()) ||
-        '0x0000000000000000000000000000000000000000'
-    );
+    seedrand((address && address.toLowerCase()) || '0x0000000000000000000000000000000000000000');
     const color = createColor();
     const bgcolor = createColor();
     const spotcolor = createColor();
@@ -144,6 +136,8 @@
   afterUpdate(update);
 </script>
 
+<canvas class={_class} bind:this={canvas} />
+
 <style>
   canvas {
     image-rendering: -moz-crisp-edges;
@@ -152,5 +146,3 @@
     image-rendering: crisp-edges;
   }
 </style>
-
-<canvas class={_class} bind:this={canvas} />

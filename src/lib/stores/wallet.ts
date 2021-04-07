@@ -15,11 +15,7 @@ const walletStores = WalletStores({
     finality,
   },
   autoSelectPrevious: true,
-  localStoragePrefix:
-    (basepath.startsWith('/ipfs/') ||
-      basepath.startsWith('/ipns/'))
-      ? basepath.slice(6)
-      : undefined, // ensure local storage is not conflicting across web3w-based apps on ipfs gateways
+  localStoragePrefix: basepath.startsWith('/ipfs/') || basepath.startsWith('/ipns/') ? basepath.slice(6) : undefined, // ensure local storage is not conflicting across web3w-based apps on ipfs gateways
   options: [
     'builtin',
     // new TorusModuleLoader({verifier: 'google', nodeUrl, chainId}),
@@ -34,15 +30,7 @@ const walletStores = WalletStores({
   fallbackNode: nodeUrl, // TODO use query string to specify it // TODO settings
 });
 
-export const {
-  wallet,
-  transactions,
-  builtin,
-  chain,
-  balance,
-  flow,
-  fallback,
-} = walletStores;
+export const {wallet, transactions, builtin, chain, balance, flow, fallback} = walletStores;
 
 function notifyFailure(tx: {hash: string}) {
   notifications.queue({

@@ -1,29 +1,31 @@
 <script lang="ts">
-  let _class: string = '';
+  let _class = '';
   export {_class as class};
 
   export let href: string;
-  export let blank: boolean = false;
+  export let blank = false;
   export let label: string;
 
-  export let big: boolean = false;
-  export let active: boolean = false;
-  export let disabled: boolean = false;
-  export let waitOnDisabled: boolean = false;
+  export let big = false;
+  export let active = false;
+  export let disabled = false;
+  export let waitOnDisabled = false;
 
-  export let secondary: boolean = false;
-  export let tertiary: boolean = false;
-  export let danger: boolean = false;
-  export let white: boolean = false;
+  export let secondary = false;
+  export let tertiary = false;
+  export let danger = false;
+  export let white = false;
   $: primary = !secondary && !tertiary && !danger && !white;
 
-  export let customPadding: string = '';
+  export let customPadding = '';
 
   let sizeClasses: string;
   $: {
     sizeClasses = `${customPadding || 'px-4 py-2'} text-sm border-2 space-x-1 rounded-md sm:leading-5`;
     if (big) {
-      sizeClasses = `${customPadding || 'px-8 py-3 md:px-10 md:py-4'} border-4 leading-6 space-x-3 rounded-lg md:text-lg `;
+      sizeClasses = `${
+        customPadding || 'px-8 py-3 md:px-10 md:py-4'
+      } border-4 leading-6 space-x-3 rounded-lg md:text-lg `;
     }
   }
 
@@ -73,7 +75,13 @@
     }
   }
 
-  $: classes = `w-full flex items-center justify-center font-medium select-none transition transform duration-150 ease-in-out focus:outline-none ${colorClasses} ${sizeClasses} ${disabled ? disabledClasses : active ? activatedClasses : `border-transparent ${hoverClasses} ${focusClasses} ${activeClasses}`} ${_class}`;
+  $: classes = `w-full flex items-center justify-center font-medium select-none transition transform duration-150 ease-in-out focus:outline-none ${colorClasses} ${sizeClasses} ${
+    disabled
+      ? disabledClasses
+      : active
+      ? activatedClasses
+      : `border-transparent ${hoverClasses} ${focusClasses} ${activeClasses}`
+  } ${_class}`;
 </script>
 
 <a
@@ -84,6 +92,7 @@
   rel={blank === true ? 'noopener noreferrer' : ''}
   target={blank === true ? '_blank' : ''}
   {disabled}
-  class={classes}>
-  <slot></slot>
+  class={classes}
+>
+  <slot />
 </a>

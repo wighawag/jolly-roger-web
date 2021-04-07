@@ -6,10 +6,12 @@
   import {page} from '$app/stores';
 </script>
 
-
 <ul class="flex m-1 border-b border-pink-600">
   {#each links as link}
-    <NavLink href={link.href} active={base + (link.href.replace(/^\/+|\/+$/g, '')) === ($page.path.replace(/^\/+|\/+$/g, ''))}>
+    <NavLink
+      href={link.href}
+      active={base + link.href.replace(/^\/+|\/+$/g, '') === $page.path.replace(/^\/+|\/+$/g, '')}
+    >
       {link.title}
     </NavLink>
   {/each}
