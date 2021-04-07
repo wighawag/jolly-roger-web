@@ -1,3 +1,7 @@
+<script context="module">
+	export const hydrate = false;
+</script>
+
 <script lang="ts">
 	import NavButton from '$lib/components/navigation/NavButton.svelte';
 	import Feature from '$lib/components/Feature.svelte';
@@ -35,7 +39,6 @@
 		<div
 		  class="space-y-5 sm:flex sm:justify-center sm:space-y-0 sm:space-x-3">
 		  <NavButton
-			blank={true}
 			class="big secondary"
 			href="demo"
 			label="Try the Demo!">

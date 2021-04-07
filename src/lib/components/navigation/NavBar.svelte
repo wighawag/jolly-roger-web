@@ -1,22 +1,16 @@
 <script lang="ts">
-  type LinkInfo = string | {name: string; title: string; hash?: string};
+  type LinkInfo = {href: string; title: string};
   export let links: LinkInfo[];
   import NavLink from './NavLink.svelte';
-  import {basepath} from '$lib/init';
+  import {base} from '$app/paths';
+  import {page} from '$app/stores';
 </script>
 
-<div
-  class="absolute w-full h-1 -m-1 z-40"
-  style={`background: url(${basepath}images/multicolor_line_x8.png);`} />
-<ul class="flex m-1">
+
+<ul class="flex m-1 border-b border-pink-600">
   {#each links as link}
-    <NavLink
-      name={typeof link === 'string' ? link : link.name}
-      hash={link.hash}>
-      {typeof link === 'string' ? link : link.title}
+    <NavLink href={link.href} active={base + (link.href.replace(/^\/+|\/+$/g, '')) === ($page.path.replace(/^\/+|\/+$/g, ''))}>
+      {link.title}
     </NavLink>
   {/each}
 </ul>
-<div
-  class="absolute w-full h-1 -m-1 z-40"
-  style={`background: url(${basepath}images/multicolor_line_x8.png);`} />
