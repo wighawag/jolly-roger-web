@@ -1,5 +1,6 @@
 <script>
   import '../global.css';
+  import {base} from '$app/paths';
   import NavBar from '$lib/components/navigation/NavBar.svelte';
   import Notifications from '$lib/components/notification/Notifications.svelte';
   import NoInstallPrompt from '$lib/components/NoInstallPrompt.svelte';
@@ -12,8 +13,8 @@
 
 <NavBar
   links={[
-    {href: '/', title: 'Home'},
-    {href: 'demo/', title: 'Demo'},
+    {href: `${base}/`, title: 'Home'},
+    {href: `${base}/demo/`, title: 'Demo'},
   ]}
 />
 <slot />
