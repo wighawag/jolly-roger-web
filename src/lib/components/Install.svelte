@@ -1,7 +1,7 @@
 <script lang="ts">
   import {onMount} from 'svelte';
   import localCache from '$lib/utils/localCache';
-  import {basepath} from '$lib/init';
+  import {base} from '$app/paths';
   type BeforeInstallPromptEvent = Event & {
     prompt: () => void;
     userChoice: Promise<{outcome: string}>;
@@ -72,7 +72,7 @@
       <div class="p-4">
         <div class="flex items-start">
           <div class="flex-shrink-0 pt-0.5">
-            <img class="h-10 w-10 rounded-full" src={`${basepath}maskable_icon_512x512.png`} alt="Jolly Roger" />
+            <img class="h-10 w-10 rounded-full" src={`${base}/maskable_icon_512x512.png`} alt="Jolly Roger" />
           </div>
           <div class="ml-3 w-0 flex-1">
             <p class="text-sm font-medium dark:text-gray-100 text-black">

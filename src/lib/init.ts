@@ -20,5 +20,3 @@ export function init(): void {
   startTime = Math.floor(Date.now() / 1000);
   setWindowStartTime();
 }
-
-export const basepath = '/'; // TODO

@@ -4,7 +4,7 @@ import {WalletConnectModuleLoader} from 'web3w-walletconnect-loader';
 import contractsInfo from '$lib/contracts.json';
 import {notifications} from './notifications';
 import {finality, nodeUrl, chainId} from '$lib/config';
-import {basepath} from '$lib/init';
+import {base} from '$app/paths';
 import {isCorrected, correctTime} from './time';
 
 const walletStores = WalletStores({
@@ -15,7 +15,7 @@ const walletStores = WalletStores({
     finality,
   },
   autoSelectPrevious: true,
-  localStoragePrefix: basepath.startsWith('/ipfs/') || basepath.startsWith('/ipns/') ? basepath.slice(6) : undefined, // ensure local storage is not conflicting across web3w-based apps on ipfs gateways
+  localStoragePrefix: base.startsWith('/ipfs/') || base.startsWith('/ipns/') ? base.slice(6) : undefined, // ensure local storage is not conflicting across web3w-based apps on ipfs gateways
   options: [
     'builtin',
     new TorusModuleLoader({verifier: 'google', nodeUrl, chainId}),

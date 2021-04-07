@@ -5092,10 +5092,10 @@ svelte@^3.29.0:
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.37.0.tgz#dc7cd24bcc275cdb3f8c684ada89e50489144ccd"
   integrity sha512-TRF30F4W4+d+Jr2KzUUL1j8Mrpns/WM/WacxYlo5MMb2E5Qy2Pk1Guj6GylxsW9OnKQl1tnF8q3hG/hQ3h6VUA==
 
-sveltejs-adapter-ipfs@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/sveltejs-adapter-ipfs/-/sveltejs-adapter-ipfs-0.0.2.tgz#d944939d146de8148f7179ce98d55188378fd014"
-  integrity sha512-wkhCHVDM5CVG6O4GBdDt+XcCL7cbu+fm7JpWmXg1YW0MHZGJo1k41T9KcDgR6IYRKJqAYFdNsK0iV4h+LyLHRw==
+sveltejs-adapter-ipfs@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/sveltejs-adapter-ipfs/-/sveltejs-adapter-ipfs-0.0.3.tgz#e04c6ffb9180a7da2af8317a5c566f55da2f311b"
+  integrity sha512-V5gPwc13dpcJX7z7+kTluNxnAhmeju1fWTCUyX0g2q6JY0pRb3/Y9bkxkmEgi1xYtEkDD7pn7rqBEcIGdf7xIA==
   dependencies:
     slash "^3.0.0"
 

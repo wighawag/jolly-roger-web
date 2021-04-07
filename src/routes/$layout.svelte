@@ -1,4 +1,5 @@
 <script>
+  import '../service-worker-handler';
   import '../global.css';
   import {base} from '$app/paths';
   import NavBar from '$lib/components/navigation/NavBar.svelte';

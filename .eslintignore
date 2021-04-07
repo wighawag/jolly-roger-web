@@ -8,3 +8,4 @@ yalc.lock
 .env
 /static/pwa
 .vscode
+*.html

@@ -1,6 +1,6 @@
 const sveltePreprocess = require('svelte-preprocess');
 const node = require('@sveltejs/adapter-node');
-const adapter_static = require('sveltejs-adapter-ipfs');
+const adapter_ipfs = require('sveltejs-adapter-ipfs');
 // const adapter_static = require('@sveltejs/adapter-static');
 const pkg = require('./package.json');
 
@@ -17,7 +17,7 @@ module.exports = {
     }),
   ],
   kit: {
-    adapter: adapter_static(),
+    adapter: adapter_ipfs({removeBuiltInServiceWorkerRegistration: true, injectPagesInServiceWorker: true}),
 
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',

@@ -1,9 +1,9 @@
 <script lang="ts">
   export let title = '';
   import {chainName} from './config';
-  import {basepath} from './init';
   import NavButton from './components/navigation/NavButton.svelte';
   import Modal from './components/Modal.svelte';
+  import {base} from '$app/paths';
 
   import {wallet, builtin, chain, flow, fallback} from './stores/wallet';
 
@@ -87,7 +87,7 @@
             <img
               class="cursor-pointer p-2 m-2 border-2 h-12 w-12 object-contain"
               alt={`Login with ${option.name}`}
-              src={`${basepath}${option.img}`}
+              src={`${base}/${option.img}`}
               on:click={() => wallet.connect(option.id)}
             />
           {/each}
@@ -104,7 +104,7 @@
               <img
                 class="cursor-pointer p-0 mx-2 h-10 w-10 object-contain"
                 alt={`Download Metamask}`}
-                src={`${basepath}images/metamask.svg`}
+                src={`${base}/images/metamask.svg`}
               />
               Download metamask
             </NavButton>
