@@ -20,6 +20,7 @@
   links={[
     {href: `${base}/`, title: 'Home'},
     {href: `${base}/demo/`, title: 'Demo'},
+    {href: `${base}/test/`, title: 'Test'},
   ]}
 />
 <slot />
