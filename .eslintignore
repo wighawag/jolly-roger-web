@@ -9,3 +9,4 @@ yalc.lock
 /static/pwa
 .vscode
 *.html
+*.md
