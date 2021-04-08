@@ -27,7 +27,7 @@ module.exports = {
         noExternal: Object.keys(pkg.dependencies || {}),
       },
       optimizeDeps: {
-        include: ['bn.js', 'bech32', 'hash.js', 'graphql'],
+        include: ['bn.js', 'bech32', 'hash.js', 'graphql', 'pretty-ms'],
       },
     },
   },

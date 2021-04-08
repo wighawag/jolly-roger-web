@@ -17,7 +17,7 @@
     "byte-base64": "^1.1.0",
     "graphql": "^15.5.0",
     "lz-string": "^1.4.4",
-    "pretty-ms": "^7.0.1",
+    "pretty-ms": "https://github.com/wighawag/pretty-ms#320ba46c464052ebbe605e48ad05df9e9801e956",
     "sveltejs-tippy": "^3.0.0",
     "web3w": "^0.2.44",
     "web3w-torus-loader": "^0.2.5",

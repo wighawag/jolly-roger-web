@@ -2,7 +2,7 @@
   import {Wallet} from '@ethersproject/wallet';
   import {onMount} from 'svelte';
   import aes from 'aes-js';
-  import {base64, compressToUint8Array, decompressFromUint8Array} from '$lib/utils';
+  import {base64, compressToUint8Array, decompressFromUint8Array, timeToText} from '$lib/utils';
 
   let encryptedForWire;
   let decrypted;
@@ -30,3 +30,6 @@
 {encryptedForWire}
 <br />
 {decrypted}
+
+<br />
+{timeToText(1000020)}
