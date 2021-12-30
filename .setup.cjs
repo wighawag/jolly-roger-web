@@ -9,4 +9,4 @@ function copyFromDefault(p) {
   }
 }
 
-[/*'.vscode/settings.json', */ '.env'].map(copyFromDefault);
+['.vscode/settings.json', '.env'].map(copyFromDefault);
