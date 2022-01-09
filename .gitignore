@@ -12,3 +12,4 @@ yalc.lock
 !.vscode/*.default
 /src/app.html
 /static/robots.txt
+release/
