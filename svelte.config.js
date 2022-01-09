@@ -14,22 +14,8 @@ const pkg = loadJSON('./package.json');
 
 const VERSION = execSync('git rev-parse --short HEAD').toString().trim();
 
-if (!process.env.VITE_CHAIN_ID) {
-  try {
-    const contractsInfo = JSON.parse(fs.readFileSync('./src/lib/contracts.json'));
-    process.env.VITE_CHAIN_ID = contractsInfo.chainId;
-  } catch (e) {
-    console.error(e);
-  }
-}
-
 let outputFolder = './build';
 
-if (process.env.VERCEL) {
-  // allow no config when creating a vercel project
-  outputFolder = '../public';
-  console.log('building on VERCEL...');
-}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
