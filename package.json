@@ -65,6 +65,7 @@
     "start": "svelte-kit start",
     "serve": "ipfs-emulator --only -d build -p 8080",
     "deploy": "dotenv -- ipfs-deploy -p pinata -s jolly-roger build",
-    "build:deploy": "run-s build deploy"
+    "build:deploy": "run-s build deploy",
+    "build:serve": "run-s build serve"
   }
 }
