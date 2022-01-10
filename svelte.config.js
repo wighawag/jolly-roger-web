@@ -16,7 +16,6 @@ const VERSION = execSync('git rev-parse --short HEAD').toString().trim();
 
 let outputFolder = './build';
 
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   preprocess: preprocess({
